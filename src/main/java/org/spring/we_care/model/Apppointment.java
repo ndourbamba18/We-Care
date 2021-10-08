@@ -9,14 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Apppointment {
     
     @Id
@@ -33,4 +27,85 @@ public class Apppointment {
     private LocalDate date;
 
     private String slot;
+
+    public Apppointment() {
+    }
+
+    public Apppointment(User user, User coach, LocalDate date, String slot) {
+        this.user = user;
+        this.coach = coach;
+        this.date = date;
+        this.slot = slot;
+    }
+
+    /**
+     * @return int return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return User return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * @return User return the coach
+     */
+    public User getCoach() {
+        return coach;
+    }
+
+    /**
+     * @param coach the coach to set
+     */
+    public void setCoach(User coach) {
+        this.coach = coach;
+    }
+
+    /**
+     * @return LocalDate return the date
+     */
+    public LocalDate getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    /**
+     * @return String return the slot
+     */
+    public String getSlot() {
+        return slot;
+    }
+
+    /**
+     * @param slot the slot to set
+     */
+    public void setSlot(String slot) {
+        this.slot = slot;
+    }
+
 }

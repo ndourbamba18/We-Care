@@ -5,15 +5,11 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class States {
     
     @Id
@@ -22,7 +18,76 @@ public class States {
 
     private String name;
 
+    @OneToMany
     private List<City> cities;
 
+    @ManyToOne
     private Country country;
+
+
+    public States() {
+    }
+
+    public States(String name, List<City> cities, Country country) {
+        this.name = name;
+        this.cities = cities;
+        this.country = country;
+    }
+
+    /**
+     * @return int return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return String return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return List<City> return the cities
+     */
+    public List<City> getCities() {
+        return cities;
+    }
+
+    /**
+     * @param cities the cities to set
+     */
+    public void setCities(List<City> cities) {
+        this.cities = cities;
+    }
+
+    /**
+     * @return Country return the country
+     */
+    public Country getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
 }
