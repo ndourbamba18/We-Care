@@ -1,6 +1,7 @@
 # We-Care
 
-This project is a Capstone for a Health care domain.
+WeCARE is an online Life Coaching application that helps its users to sign up and log in to seek the guidance of famous Life Coaches from different expertise in one place. Users can search for a Life Coach based on specialty and can book an appointment within 7 days. They can also see upcoming appointments and can reschedule or cancel the appointments, based on this a mailer is sent to their mail ids.
+
 
 How it's work
 
