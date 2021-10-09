@@ -1,6 +1,8 @@
 package org.spring.we_care.model;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class User {
+public class User implements UserDetails {
     
     @Id
     @GeneratedValue
@@ -41,7 +45,7 @@ public class User {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private LocalDate birth;
+    private Date birth;
 
     @Column(unique = true, nullable = false)
     private Long phone;
@@ -70,7 +74,7 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String username, String password, String gender, LocalDate birth, Long phone, String email, int pinCode, Profile profile, City city, List<Apppointment> appointments) {
+    public User(String firstName, String lastName, String username, String password, String gender, Date birth, Long phone, String email, int pinCode, Profile profile, City city, List<Apppointment> appointments) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -85,7 +89,7 @@ public class User {
         this.appointments = appointments;
     }
 
-    public User(String firstName, String lastName, String username, String password, String gender, LocalDate birth,  Profile profile, Speciality speciality, List<Apppointment> schedules) {
+    public User(String firstName, String lastName, String username, String password, String gender, Date birth,  Profile profile, Speciality speciality, List<Apppointment> schedules) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -196,16 +200,16 @@ public class User {
     }
 
     /**
-     * @return LocalDate return the birth
+     * @return Date return the birth
      */
-    public LocalDate getBirth() {
+    public Date getBirth() {
         return birth;
     }
 
     /**
      * @param birth the birth to set
      */
-    public void setBirth(LocalDate birth) {
+    public void setBirth(Date birth) {
         this.birth = birth;
     }
 
@@ -335,6 +339,36 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, code, firstName, lastName, username, password, gender, birth, phone, email, pinCode, profile, speciality, city, appointments, schedules);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        return false;
     }
 
 }

@@ -1,6 +1,6 @@
 package org.spring.we_care.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,14 +24,14 @@ public class Apppointment {
     private User coach;
 
     @Temporal(TemporalType.DATE)
-    private LocalDate date;
+    private Date date;
 
     private String slot;
 
     public Apppointment() {
     }
 
-    public Apppointment(User user, User coach, LocalDate date, String slot) {
+    public Apppointment(User user, User coach, Date date, String slot) {
         this.user = user;
         this.coach = coach;
         this.date = date;
@@ -81,16 +81,16 @@ public class Apppointment {
     }
 
     /**
-     * @return LocalDate return the date
+     * @return Date return the date
      */
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
